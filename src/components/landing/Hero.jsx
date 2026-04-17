@@ -1,16 +1,16 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { images } from "../../config/media";
 import Navbar from "../Nav";
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden px-22 flex items-center font-Manrope">
+    <section className="relative w-full min-h-160 overflow-hidden px-22 flex items-center font-Manrope">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://framerusercontent.com/images/DOKNSZ9eBsnOzN4j5ECRs4berKE.png)",
+          backgroundImage: `url(${images.hero.bg})`,
         }}
       />
 
@@ -18,7 +18,7 @@ const Hero = () => {
 
       <Navbar />
 
-      <div className="relative z-10 mt-40 h-fit w-full flex gap-10 text-white">
+      <div className="relative z-10 mt-25 h-fit w-full flex gap-10 text-white">
         {/* top part */}
         <div className="h-full w-1/2 flex flex-col items-start gap-9">
           {/* content */}

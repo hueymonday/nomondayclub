@@ -1,4 +1,5 @@
 import React from "react";
+import { images } from "../../config/media";
 
 const Reason = () => {
   return (
@@ -21,7 +22,7 @@ const Reason = () => {
         {/* pic */}
         <div className="w-2/3 h-52 rounded-[16px] overflow-hidden">
           <img
-            src="https://framerusercontent.com/images/DOKNSZ9eBsnOzN4j5ECRs4berKE.png"
+            src={images.reason.rpic}
             alt="reason picture :)"
             className="h-full w-full object-cover object-center"
           />
