@@ -1,4 +1,3 @@
-// src/config/media.js
 const CLOUD = "dk59nufs1";
 const BASE = `https://res.cloudinary.com/${CLOUD}/image/upload/q_auto/f_auto`;
 
@@ -17,7 +16,10 @@ export const images = {
     v5: `${BASE}/vision05`,
     v6: `${BASE}/vision06`,
   },
+  about: {
+    abt: `${BASE}/moreAbout`,
+  },
   cta: {
-    track: `${BASE}/nmc/cta-track`,
+    track: `${BASE}/CTA-track`,
   },
 };
