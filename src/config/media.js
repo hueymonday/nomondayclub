@@ -19,6 +19,11 @@ export const images = {
   about: {
     abt: `${BASE}/moreAbout`,
   },
+  schedule: {
+    sch1: `${BASE}/schedule01`,
+    sch2: `${BASE}/schedule02`,
+    sch3: `${BASE}/schedule03`,
+  },
   cta: {
     track: `${BASE}/CTA-track`,
   },

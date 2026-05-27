@@ -1,5 +1,5 @@
 import React from "react";
-
+import { images } from "../../config/media";
 const Schedule = () => {
   const schedule = [
     {
@@ -8,6 +8,7 @@ const Schedule = () => {
       time: "5:30 AM",
       location: "Bach Dang Riverside",
       distance: "6km easy",
+      image: images.schedule.sch1,
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ const Schedule = () => {
       time: "5:30 AM",
       location: "My Khe Beach",
       distance: "8km tempo",
+      image: images.schedule.sch2,
     },
     {
       id: 3,
@@ -22,8 +24,19 @@ const Schedule = () => {
       time: "6:00 AM",
       location: "Son Tra Peninsula",
       distance: "10km long",
+      image: images.schedule.sch3,
     },
   ];
+
+  const showCursorImage = (url) => {
+    window.dispatchEvent(
+      new CustomEvent("cursor:show-image", { detail: { url } }),
+    );
+  };
+
+  const hideCursorImage = () => {
+    window.dispatchEvent(new CustomEvent("cursor:hide-image"));
+  };
 
   return (
     <section className="w-full h-full flex flex-col items-end justify-center gap-20 pt-45 py-10">
@@ -43,7 +56,12 @@ const Schedule = () => {
       <div className="w-180 h-fit gap-20">
         {/* content */}
         {schedule.map((item, index) => (
-          <div className="font-semibold text-sm flex items-center gap-56 py-10 border-t-2 border-[#bbb]/20">
+          <div
+            key={item.id}
+            onMouseEnter={() => showCursorImage(item.image)} // hover vào → hiện ảnh
+            onMouseLeave={hideCursorImage} // hover ra → ẩn ảnh
+            className="schedule-item font-semibold text-sm flex items-center gap-56 py-10 border-t-2 border-[#bbb]/20"
+          >
             {/* left */}
             <div className="w-1fr flex gap-31 justify-between items-center">
               <span>{(index + 1).toString().padStart(2, "0")}</span>

@@ -53,12 +53,7 @@ const FAQ = () => {
 
       {/* FAQs */}
       <div className="w-166 mx-auto h-fit flex items-center justify-center">
-        <Accordion
-          type="multiple"
-          collapsible
-          defaultValue="item-1"
-          className="max-w-186 font-Manrope"
-        >
+        <Accordion type="multiple" className="max-w-186 font-Manrope">
           {faqData.map((item) => (
             <AccordionItem key={item.id} value={item.id}>
               <AccordionTrigger>{item.question}</AccordionTrigger>

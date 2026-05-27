@@ -289,3 +289,48 @@ code {
     color: #fff;
   }
 }
+
+/* ---custom cursor--- */
+
+* {
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: -20px; /* offset để tâm cursor khớp với vị trí chuột */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none; /* không chặn click bên dưới */
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+@media (hover: none) {
+  .custom-cursor {
+    display: none;
+  }
+  * {
+    cursor: auto;
+  }
+}
+
+.cursor-image {
+  position: fixed;
+  top: -150px;
+  left: -100px;
+  width: 180px;
+  height: 260px;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.cursor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
