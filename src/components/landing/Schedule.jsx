@@ -39,7 +39,10 @@ const Schedule = () => {
   };
 
   return (
-    <section className="w-full h-full flex flex-col items-end justify-center gap-20 pt-45 py-10">
+    <section
+      id="schedule"
+      className="w-full h-full flex flex-col items-end justify-center gap-20 pt-45 py-10"
+    >
       <span className="w-full h-fit text-left px-6 text-7xl tracking-[-0.05em] font-medium leading-[1.2em]">
         Schedule
       </span>

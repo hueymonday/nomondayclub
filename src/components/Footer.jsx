@@ -2,6 +2,25 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  // Hàm scroll mượt đến section tương ứng
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start", // Cuộn sao cho mép trên của section chạm mép trên viewport
+      });
+    }
+  };
+
+  // Scroll lên đầu trang
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="w-full flex flex-col gap-10">
       {/* navigation links */}
@@ -9,11 +28,34 @@ const Footer = () => {
         {/* nav */}
         <div className="w-fit flex-col text-left text-sm">
           <span>Quick Links</span>
-          <div className="text-[#999] [&>a]:transition-colors [&>a]:duration-300 [&>a:hover]:text-black/60">
-            <Link to="/">Home, </Link>
-            <Link to="/">About, </Link>
-            <Link to="/">Schedule, </Link>
-            <Link to="/">Contact</Link>
+          <div className="text-[#999] [&>a]:transition-colors [&>a]:duration-300 [&>a:hover]:text-black/60 [&>button]:transition-colors [&>button]:duration-300 [&>button:hover]:text-black/60">
+            <a
+              onClick={scrollToTop}
+              className="bg-transparent border-none cursor-pointer p-0 font-inherit text-inherit"
+            >
+              Home,{" "}
+            </a>
+
+            <a
+              onClick={() => scrollToSection("about")}
+              className="bg-transparent border-none cursor-pointer p-0 font-inherit text-inherit"
+            >
+              About,{" "}
+            </a>
+
+            <a
+              onClick={() => scrollToSection("schedule")}
+              className="bg-transparent border-none cursor-pointer p-0 font-inherit text-inherit"
+            >
+              Schedule,{" "}
+            </a>
+
+            <a
+              onClick={() => scrollToSection("contact")}
+              className="bg-transparent border-none cursor-pointer p-0 font-inherit text-inherit"
+            >
+              Contact
+            </a>
           </div>
         </div>
 
@@ -21,10 +63,22 @@ const Footer = () => {
         <div className="w-fit flex-col text-right text-sm">
           <span>Networks</span>
           <div className="text-[#999] [&>a]:transition-colors [&>a]:duration-300 [&>a:hover]:text-black/60">
-            <Link to="/">Instagram, </Link>
-            <Link to="/">Facebook, </Link>
-            <Link to="/">Twitter, </Link>
-            <Link to="/">LinkedIn</Link>
+            <a
+              href="https://www.instagram.com/nmc.danang"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram,{" "}
+            </a>
+            <a href="" className="">
+              Facebook,{" "}
+            </a>
+            <a href="" className="">
+              Twitter,{" "}
+            </a>
+            <a href="" className="">
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

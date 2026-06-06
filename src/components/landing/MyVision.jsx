@@ -1,19 +1,72 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { images } from "../../config/media";
 
+const LINE1_WORDS = "4:30AM. Before the noise.".split(" ");
+const LINE2_WORDS = "Before the week owns you.".split(" ");
+
+const wordVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const containerVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.05,
+    },
+  },
+};
+
 const MyVision = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-15% 0px" });
+
   return (
-    <section className="w-full h-fit p-5 pt-14">
-      {/* content */}
-      <section className="w-full h-screen flex items-center justify-center">
-        <span className="font-clash text-5xl font-semibold uppercase leading-[38.8px]">
-          4:30AM. Before the noise. <br />
-          Before the week owns you.
-        </span>
+    <section className="w-full p-5 pt-14 relative">
+      {/* content — sticky: pins to top of viewport until image section scrolls past */}
+      <section className="w-full h-screen flex items-center justify-center overflow-hidden sticky top-0 z-0">
+        <motion.p
+          ref={ref}
+          className="font-clash text-5xl font-semibold uppercase leading-[42.8px] tracking-tight"
+          variants={containerVariant}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {/* Line 1 */}
+          <span className="block">
+            {LINE1_WORDS.map((word, i) => (
+              <motion.span
+                key={`l1-${i}`}
+                className="inline-block mr-[0.25em]"
+                variants={wordVariant}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </span>
+
+          {/* Line 2 */}
+          <span className="block">
+            {LINE2_WORDS.map((word, i) => (
+              <motion.span
+                key={`l2-${i}`}
+                className="inline-block mr-[0.25em]"
+                variants={wordVariant}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </span>
+        </motion.p>
       </section>
 
-      {/* images */}
-      <section className="w-full h-fit flex flex-col gap-24">
+      {/* images — higher z-index so it slides up and overlaps the pinned content */}
+      <section className="w-full h-fit flex flex-col gap-24 relative z-10">
         {/* 1 & 2 */}
         <div className="w-full h-full pr-8 pl-24 flex items-end justify-between">
           <img

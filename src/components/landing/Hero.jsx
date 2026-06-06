@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { images } from "../../config/media";
@@ -6,8 +7,20 @@ import Navbar from "../Nav";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const navY = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -20]);
+
   return (
-    <section className="relative w-full min-h-160 overflow-hidden px-22 flex items-center font-Manrope">
+    <section
+      ref={sectionRef}
+      className="relative w-full min-h-160 overflow-hidden px-22 flex items-center font-Manrope"
+    >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
@@ -17,9 +30,14 @@ const Hero = () => {
 
       <div className="absolute inset-0 z-0 block bg-[radial-gradient(33%_42%_at_69%_59.4%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.4)_100%)]" />
 
-      <Navbar />
+      <motion.div className="absolute inset-x-0 top-0 z-50" style={{ y: navY }}>
+        <Navbar />
+      </motion.div>
 
-      <div className="relative z-10 mt-25 h-fit w-full flex gap-10 text-white">
+      <motion.div
+        className="relative z-10 mt-25 h-fit w-full flex gap-10 text-white"
+        // style={{ y: contentY }}
+      >
         {/* top part */}
         <div className="h-full w-1/2 flex flex-col items-start gap-9">
           {/* content */}
@@ -51,7 +69,7 @@ const Hero = () => {
             </Button>
           </Button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -277,6 +277,8 @@ code {
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -333,4 +335,9 @@ code {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
