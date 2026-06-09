@@ -1,5 +1,6 @@
 import React from "react";
 import { images } from "../../config/media";
+
 const Schedule = () => {
   const schedule = [
     {
@@ -28,53 +29,65 @@ const Schedule = () => {
     },
   ];
 
+  // Cursor effect — chỉ bind trên thiết bị không phải touch và màn hình đủ lớn
+  const isTouchDevice =
+    typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
+  const isSmallScreen =
+    typeof window !== "undefined" && window.innerWidth < 768;
+
   const showCursorImage = (url) => {
+    if (isTouchDevice || isSmallScreen) return;
     window.dispatchEvent(
       new CustomEvent("cursor:show-image", { detail: { url } }),
     );
   };
 
   const hideCursorImage = () => {
+    if (isTouchDevice || isSmallScreen) return;
     window.dispatchEvent(new CustomEvent("cursor:hide-image"));
   };
 
   return (
     <section
       id="schedule"
-      className="w-full h-full flex flex-col items-end justify-center gap-20 pt-45 py-10"
+      className="w-full h-full flex flex-col items-end justify-center gap-10 md:gap-20 pt-24 md:pt-45 py-10"
     >
-      <span className="w-full h-fit text-left px-6 text-7xl tracking-[-0.05em] font-medium leading-[1.2em]">
+      {/* Title */}
+      <span className="w-full h-fit text-left px-5 md:px-6 text-5xl md:text-7xl tracking-[-0.05em] font-medium leading-[1.2em]">
         Schedule
       </span>
 
-      {/* banner */}
-      <div className="w-full h-fit px-10 flex items-center justify-between bg-black text-white font-medium">
+      {/* Banner */}
+      <div className="w-full h-fit px-5 md:px-10 py-2 md:py-0 flex items-center justify-between bg-black text-white font-medium text-[12px] md:text-sm">
         <span>Escape</span>
         <span>No Monday Club</span>
         <span>Freedom</span>
         <span>Reset</span>
       </div>
 
-      {/* schedule content */}
-      <div className="w-180 h-fit gap-20">
-        {/* content */}
+      {/* Schedule list */}
+      <div className="w-full md:w-188 h-fit md:gap-20 px-5">
         {schedule.map((item, index) => (
           <div
             key={item.id}
-            onMouseEnter={() => showCursorImage(item.image)} // hover vào → hiện ảnh
-            onMouseLeave={hideCursorImage} // hover ra → ẩn ảnh
-            className="schedule-item font-semibold text-sm flex items-center gap-56 py-10 border-t-2 border-[#bbb]/20"
+            onMouseEnter={() => showCursorImage(item.image)}
+            onMouseLeave={hideCursorImage}
+            className="schedule-item border-t-2 border-[#bbb]/20 py-7 md:py-10
+                       flex items-center justify-between
+                       md:gap-56"
           >
-            {/* left */}
-            <div className="w-1fr flex gap-31 justify-between items-center">
-              <span>{(index + 1).toString().padStart(2, "0")}</span>
-              <span className="font-medium uppercase text-[19px]">
+            {/* Left: số thứ tự + DAY */}
+            <div className="flex items-center gap-6 md:gap-31">
+              <span className="font-semibold text-sm w-6 shrink-0">
+                {(index + 1).toString().padStart(2, "0")}
+              </span>
+              <span className="font-semibold uppercase text-sm md:text-[19px] w-12 md:w-auto shrink-0">
                 {item.day}
               </span>
             </div>
 
-            {/* right */}
-            <div>
+            {/* Right: time · location · distance */}
+            <div className="font-semibold text-[12px] md:text-sm text-right md:text-left leading-snug">
               {item.time} · {item.location} · {item.distance}
             </div>
           </div>

@@ -19,51 +19,51 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-160 overflow-hidden px-22 flex items-center font-Manrope"
+      className="relative w-full min-h-screen md:min-h-160 overflow-hidden px-5 md:px-22 flex items-center font-Manrope"
     >
+      {/* Background image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${images.hero.bg})`,
-        }}
+        style={{ backgroundImage: `url(${images.hero.bg})` }}
       />
 
+      {/* Gradient overlay */}
       <div className="absolute inset-0 z-0 block bg-[radial-gradient(33%_42%_at_69%_59.4%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.4)_100%)]" />
 
+      {/* Navbar */}
       <motion.div className="absolute inset-x-0 top-0 z-50" style={{ y: navY }}>
         <Navbar />
       </motion.div>
 
-      <motion.div
-        className="relative z-10 mt-25 h-fit w-full flex gap-10 text-white"
-        // style={{ y: contentY }}
-      >
-        {/* top part */}
-        <div className="h-full w-1/2 flex flex-col items-start gap-9">
-          {/* content */}
-          <div className="flex w-full max-w-4xl flex-col items-start">
+      {/* Content */}
+      <motion.div className="relative z-10 mt-28 md:mt-25 h-fit w-full flex gap-10 text-white">
+        <div className="h-full w-full md:w-1/2 flex flex-col items-start gap-7 md:gap-9">
+          {/* Text block */}
+          <div className="flex w-full max-w-4xl flex-col items-start gap-1">
             <div className="flex items-center gap-3 -mb-1">
               <span className="font-[inter]">——</span>
-              <span>No Mondays. Just miles.</span>
+              <span className="text-sm md:text-base">
+                No Mondays. Just miles.
+              </span>
             </div>
 
-            <h1 className="-tracking-[0.14rem] font-['Inter'] font-bold ">
+            <h1 className="-tracking-[0.14rem] font-['Inter'] font-bold text-4xl md:text-inherit leading-tight">
               NMC — No Monday Club
             </h1>
 
-            <p className="text-base text-left text-white">
-              No Monday Club is Da Nang’s first anti-Monday running crew. We
+            <p className="text-sm md:text-base text-left text-white leading-relaxed">
+              No Monday Club is Da Nang's first anti-Monday running crew. We
               meet before the city wakes. We run not because we have to — but
               because it resets everything.
             </p>
           </div>
-          {/* button */}
+
+          {/* CTA Button */}
           <Button
             variant="outline"
             className="group flex justify-between gap-2 h-11 text-black rounded-full pl-5 pr-1 hover:bg-gray-200"
           >
             <Link to="/join">Start now</Link>
-
             <Button className="h-9 w-9 rounded-full">
               <ArrowUpRight className="duration-500 ease-in-out transition-transform group-hover:rotate-45" />
             </Button>

@@ -43,23 +43,25 @@ const Reason = () => {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
+
+  // Parallax effect
   const parallaxY = useTransform(scrollYProgress, [0, 0.5], [0, -540]);
 
   return (
     <motion.section
       ref={sectionRef}
       style={{ y: parallaxY }}
-      className="-mb-135 relative z-30 w-full h-fit flex flex-col justify-end px-22 pt-32 pb-24 gap-14 bg-white will-change-transform"
+      className="-mb-135 relative z-30 w-full h-fit flex flex-col justify-end px-22 max-sm:px-5 pt-32 max-sm:pt-16 pb-24 max-sm:pb-12 gap-14 max-sm:gap-8 bg-white will-change-transform"
     >
       {/* top part */}
-      <div className="w-full h-fit flex justify-between items-center gap-24">
+      <div className="w-full h-fit flex max-sm:flex-col justify-between items-center gap-24 max-sm:gap-6">
         {/* content */}
         <div className="flex flex-col w-full font-Manrope">
-          <span className="text-3xl font-medium pr-32 -tracking-[0.03em] leading-[1.3em]">
+          <span className="text-3xl max-sm:text-xl font-medium pr-32 max-sm:pr-0 -tracking-[0.03em] leading-[1.3em]">
             (Why we run)
           </span>
-          <span className="text-left text-[#888] text-3xl font-medium -tracking-[0.03em] leading-[1.3em]">
-            Running is escape. NMC is not about the finish line—it’s about
+          <span className="text-left text-[#888] text-3xl max-sm:text-lg font-medium -tracking-[0.03em] leading-[1.3em]">
+            Running is escape. NMC is not about the finish line—it's about
             freedom from routine. We run to reset ourselves, to claim the
             morning before the world takes it. One pace, one reason: break
             loose.
@@ -67,7 +69,7 @@ const Reason = () => {
         </div>
 
         {/* pic */}
-        <div className="w-2/3 h-52 rounded-[16px] overflow-hidden">
+        <div className="w-93.75 max-sm:w-full h-55.75 max-sm:h-40 rounded-[16px] max-sm:rounded-[12px] overflow-hidden flex-shrink-0">
           <img
             src={images.reason.rpic}
             alt="reason picture :)"
@@ -77,41 +79,44 @@ const Reason = () => {
       </div>
 
       {/* bottom part */}
-      <div className="w-full h-fit flex justify-between items-start gap-24 ">
+      <div className="w-full h-fit flex max-sm:flex-wrap justify-between items-start gap-24 max-sm:gap-6">
         {/* members */}
-        <div className="w-full h-fit pt-12 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
+        <div className="w-full max-sm:w-[calc(50%-12px)] h-fit pt-12 max-sm:pt-6 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
           <Counter
             to={90}
             suffix="+"
-            className="text-6xl leading-14 font-bold"
+            className="text-6xl max-sm:text-4xl leading-14 max-sm:leading-10 font-bold"
           />
-          <span>Members</span>
+          <span className="text-base max-sm:text-sm">Members</span>
         </div>
 
         {/* Weekly escapes */}
-        <div className="w-full h-fit pt-12 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
+        <div className="w-full max-sm:w-[calc(50%-12px)] h-fit pt-12 max-sm:pt-6 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
           <Counter
             to={7}
             suffix="+"
-            className="text-6xl leading-14 font-bold"
+            className="text-6xl max-sm:text-4xl leading-14 max-sm:leading-10 font-bold"
           />
-          <span>Weekly escapes</span>
+          <span className="text-base max-sm:text-sm">Weekly escapes</span>
         </div>
 
         {/* AM meetup */}
-        <div className="w-full h-fit pt-12 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
+        <div className="w-full max-sm:w-[calc(50%-12px)] h-fit pt-12 max-sm:pt-6 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
           <Counter
             to={4}
             suffix=":30"
-            className="text-6xl leading-14 font-bold"
+            className="text-6xl max-sm:text-4xl leading-14 max-sm:leading-10 font-bold"
           />
-          <span>AM meetup</span>
+          <span className="text-base max-sm:text-sm">AM meetup</span>
         </div>
 
         {/* Rule — no Mondays */}
-        <div className="w-full h-fit pt-12 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
-          <Counter to={1} className="text-6xl leading-14 font-bold" />
-          <span>Rule — no Mondays</span>
+        <div className="w-full max-sm:w-[calc(50%-12px)] h-fit pt-12 max-sm:pt-6 border-t-2 border-[#E1E1E1] flex flex-col gap-2 font-Manrope text-left">
+          <Counter
+            to={1}
+            className="text-6xl max-sm:text-4xl leading-14 max-sm:leading-10 font-bold"
+          />
+          <span className="text-base max-sm:text-sm">Rule — no Mondays</span>
         </div>
       </div>
     </motion.section>

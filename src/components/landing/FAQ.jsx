@@ -40,20 +40,23 @@ const FAQ = () => {
     },
   ];
   return (
-    <section className="w-full h-fit flex flex-col gap-16 py-40 px-8">
+    <section className="w-full h-fit flex flex-col gap-16 max-sm:gap-10 py-40 max-sm:py-20 px-8 max-sm:px-5">
       {/* heading */}
-      <div className="w-full h-fit flex flex-col font-Manrope ">
+      <div className="w-full h-fit flex flex-col font-Manrope">
         <span className="text-base text-[#555] font-light leading-[1.5em]">
           FAQ
         </span>
-        <span className="text-[52px] font-medium leading-[1.3em] tracking-[-0.03em]">
+        <span className="text-[52px] max-sm:text-[32px] font-medium leading-[1.3em] tracking-[-0.03em]">
           Everything you need to know
         </span>
       </div>
 
       {/* FAQs */}
-      <div className="w-166 mx-auto h-fit flex items-center justify-center">
-        <Accordion type="multiple" className="max-w-186 font-Manrope">
+      <div className="w-166 max-sm:w-full mx-auto h-fit flex items-center justify-center">
+        <Accordion
+          type="multiple"
+          className="max-w-186 max-sm:max-w-full font-Manrope"
+        >
           {faqData.map((item) => (
             <AccordionItem key={item.id} value={item.id}>
               <AccordionTrigger>{item.question}</AccordionTrigger>

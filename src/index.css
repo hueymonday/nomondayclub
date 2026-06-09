@@ -277,7 +277,7 @@ code {
   }
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; — Lenis handles smooth scrolling */
     overflow-x: hidden;
   }
 

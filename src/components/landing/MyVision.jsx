@@ -26,11 +26,13 @@ const MyVision = () => {
 
   return (
     <section className="w-full p-5 pt-14 relative">
-      {/* content — sticky: pins to top of viewport until image section scrolls past */}
+      {/* Sticky text — giữ nguyên effect */}
       <section className="w-full h-screen flex items-center justify-center overflow-hidden sticky top-0 z-0">
         <motion.p
           ref={ref}
-          className="font-clash text-5xl font-semibold uppercase leading-[42.8px] tracking-tight"
+          className="font-clash font-semibold uppercase tracking-tight
+                     text-3xl leading-[1.2em]
+                     md:text-5xl md:leading-[42.8px]"
           variants={containerVariant}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -65,53 +67,54 @@ const MyVision = () => {
         </motion.p>
       </section>
 
-      {/* images — higher z-index so it slides up and overlaps the pinned content */}
-      <section className="w-full h-fit flex flex-col gap-24 relative z-10">
-        {/* 1 & 2 */}
-        <div className="w-full h-full pr-8 pl-24 flex items-end justify-between">
+      {/* Images */}
+      <section
+        className="w-full h-fit flex flex-col relative z-10
+                          gap-8 md:gap-24"
+      >
+        {/* Row 1 & 2 */}
+        <div className="w-full h-full flex pr-4 pl-8 md:pr-8 md:pl-24 items-end justify-between">
           <img
             src={images.myVision.v1}
             alt="My Vision"
-            className="w-57.5 h-43 object-cover rounded-[10px]"
+            className="w-[38%] h-36 md:w-57.5 md:h-43 object-cover rounded-[10px]"
           />
-
           <img
             src={images.myVision.v2}
             alt="My Vision"
-            className="w-53.75 h-66.75 object-cover rounded-[10px]"
+            className="w-[32%] h-48 md:w-53.75 md:h-66.75 object-cover rounded-[10px]"
           />
         </div>
 
-        {/* 3 */}
+        {/* Row 3 */}
         <div className="w-full h-full flex justify-center">
           <img
             src={images.myVision.v3}
             alt="My Vision"
-            className="w-75 h-56 object-cover rounded-[10px] bg-red-200/40"
+            className="w-[65%] h-44 md:w-75 md:h-56 object-cover rounded-[10px]"
           />
         </div>
 
-        {/* 4 & 5 */}
-        <div className="w-full h-full pr-8 pl-24 flex items-end justify-between">
+        {/* Row 4 & 5 */}
+        <div className="w-full h-full flex pr-4 pl-8 md:pr-8 md:pl-24 items-end justify-between">
           <img
             src={images.myVision.v4}
             alt="My Vision"
-            className="w-67.5 h-50 object-cover rounded-[10px] bg-red-200/40"
+            className="w-[45%] h-40 md:w-67.5 md:h-50 object-cover rounded-[10px]"
           />
-
           <img
             src={images.myVision.v5}
             alt="My Vision"
-            className="w-62.5 h-72.25 object-cover rounded-[10px] bg-red-200/40"
+            className="w-[40%] h-52 md:w-62.5 md:h-72.25 object-cover rounded-[10px]"
           />
         </div>
 
-        {/* 6 */}
+        {/* Row 6 */}
         <div className="w-full h-full flex justify-center">
           <img
             src={images.myVision.v6}
             alt="My Vision"
-            className="w-50 h-85.25 object-cover rounded-[10px] bg-red-200/40"
+            className="w-[35%] h-60 md:w-50 md:h-85.25 object-cover rounded-[10px]"
           />
         </div>
       </section>

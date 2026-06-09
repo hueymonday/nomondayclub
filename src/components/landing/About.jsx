@@ -68,19 +68,21 @@ const About = () => {
     <section id="about" className="w-full h-fit relative">
       <div className="w-full relative">
         {/* top — STICKY TITLE */}
-        <div className="w-full pt-30 sticky top-0 z-0">
+        <div className="w-full pt-20 max-sm:pt-16 sticky top-0 z-0">
           <div
             ref={titleAnimRef}
-            className="w-full h-75vh pb-28 pt-10 flex flex-col items-center font-semibold font-clash uppercase"
+            className="w-full h-75vh pb-28 max-sm:pb-16 pt-10 max-sm:pt-8 flex flex-col items-center font-semibold font-clash uppercase"
             style={{
               transformOrigin: "top center",
               willChange: "transform, opacity",
             }}
           >
-            <span className="text-[88px] leading-17.5">more about</span>
+            <span className="text-[88px] max-sm:text-[48px] leading-17.5 max-sm:leading-12">
+              more about
+            </span>
             <span
               ref={spanNmcRef}
-              className="text-[120px] tracking-[-1.6px] leading-18"
+              className="text-[120px] max-sm:text-[72px] tracking-[-1.6px] max-sm:tracking-[-1px] leading-18 max-sm:leading-14"
             >
               NMC©
             </span>
@@ -90,14 +92,14 @@ const About = () => {
         {/* image wrapper */}
         <div
           ref={imageDivRef}
-          className="w-110 h-180 pt-16 pb-25 flex items-center justify-center relative z-10 mx-auto"
+          className="w-110 max-sm:w-[85%] h-180 max-sm:h-[60vh] pt-16 max-sm:pt-12 pb-25 max-sm:pb-16 flex items-center justify-center relative z-10 mx-auto"
         >
-          <div className="w-full h-full overflow-hidden rounded-[20px] isolate transform-gpu">
+          <div className="w-full h-full overflow-hidden rounded-[20px] max-sm:rounded-[16px] isolate transform-gpu">
             <img
               ref={imgAnimRef}
               src={images.about.abt}
               alt="more about NMC"
-              className="object-cover w-full h-full rounded-[20px] backface-hidden"
+              className="object-cover w-full h-full rounded-[20px] max-sm:rounded-[16px] backface-hidden"
               style={{
                 transformOrigin: "center center",
                 willChange: "transform",
@@ -108,15 +110,15 @@ const About = () => {
       </div>
 
       {/* bottom content */}
-      <div className="w-full h-fit pb-25">
-        <div className="size-full flex flex-col gap-7.5 text-center px-12 pb-25">
-          <span className="font-clash text-2xl font-black uppercase leading-6">
+      <div className="w-full h-fit pb-25 max-sm:pb-16">
+        <div className="size-full flex flex-col gap-7.5 max-sm:gap-5 text-center px-12 max-sm:px-6 pb-25 max-sm:pb-16">
+          <span className="font-clash text-2xl max-sm:text-xl font-black uppercase leading-6 max-sm:leading-5">
             I'M A FINAL-YEAR STUDENT FROM da NaNG WHO BUILDS THINGS FOR PEOPLE
             WHO PREFER FEWER WORDS AND MORE MILES. <br /> MY BELIEF IN QUIET
             COMMUNITY, HONEST DESIGN, AND THE IDEA THAT SOMETIMES YOU JUST NEED
             SOMEONE RUNNING IN THE SAME DIRECTION, SHAPES EVERYTHING I CREATE.
           </span>
-          <span className="font-sans font-medium text-[#808080] px-20 leading-[23.4px]">
+          <span className="font-sans font-medium text-[#808080] px-20 max-sm:px-4 leading-[23.4px] max-sm:leading-[20px]">
             NMC was built on a simple idea. Not everyone needs a big crew,
             sometimes all you need is a few people running in the same
             direction. Here, you don't have to say anything at all. Just run.
