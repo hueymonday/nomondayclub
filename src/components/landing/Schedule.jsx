@@ -1,5 +1,6 @@
 import React from "react";
 import { images } from "../../config/media";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 const Schedule = () => {
   const schedule = [
@@ -28,6 +29,8 @@ const Schedule = () => {
       image: images.schedule.sch3,
     },
   ];
+
+  const scheduleRef = useScrollReveal(".schedule-item");
 
   // Cursor effect — chỉ bind trên thiết bị không phải touch và màn hình đủ lớn
   const isTouchDevice =
@@ -66,15 +69,14 @@ const Schedule = () => {
       </div>
 
       {/* Schedule list */}
-      <div className="w-full md:w-188 h-fit md:gap-20 px-5">
+      <div ref={scheduleRef} className="w-full md:w-188 h-fit md:gap-20 px-5">
         {schedule.map((item, index) => (
           <div
             key={item.id}
             onMouseEnter={() => showCursorImage(item.image)}
             onMouseLeave={hideCursorImage}
-            className="schedule-item border-t-2 border-[#bbb]/20 py-7 md:py-10
-                       flex items-center justify-between
-                       md:gap-56"
+            className="schedule-item reveal-item border-t-2 border-[#bbb]/20 py-7 md:py-10
+                       flex items-center justify-between md:gap-56 transition-all duration-700 ease-out"
           >
             {/* Left: số thứ tự + DAY */}
             <div className="flex items-center gap-6 md:gap-31">

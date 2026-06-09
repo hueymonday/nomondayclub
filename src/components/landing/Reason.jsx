@@ -69,7 +69,7 @@ const Reason = () => {
         </div>
 
         {/* pic */}
-        <div className="w-93.75 max-sm:w-full h-55.75 max-sm:h-40 rounded-[16px] max-sm:rounded-[12px] overflow-hidden flex-shrink-0">
+        <div className="w-93.75 max-sm:w-full h-55.75 max-sm:h-40 rounded-[16px] max-sm:rounded-[12px] overflow-hidden shrink-0">
           <img
             src={images.reason.rpic}
             alt="reason picture :)"

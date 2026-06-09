@@ -5,8 +5,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/accordion";
+import { useScrollReveal } from "../../hooks/useScrollReveal";
 
 const FAQ = () => {
+  const faqRef = useScrollReveal(".faq-item");
   const faqData = [
     {
       id: 1,
@@ -52,13 +54,20 @@ const FAQ = () => {
       </div>
 
       {/* FAQs */}
-      <div className="w-166 max-sm:w-full mx-auto h-fit flex items-center justify-center">
+      <div
+        ref={faqRef}
+        className="w-166 max-sm:w-full mx-auto h-fit flex items-center justify-center"
+      >
         <Accordion
           type="multiple"
           className="max-w-186 max-sm:max-w-full font-Manrope"
         >
           {faqData.map((item) => (
-            <AccordionItem key={item.id} value={item.id}>
+            <AccordionItem
+              key={item.id}
+              value={item.id}
+              className="reveal-item faq-item"
+            >
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent className="">{item.answer}</AccordionContent>
             </AccordionItem>

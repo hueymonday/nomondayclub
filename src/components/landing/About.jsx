@@ -118,7 +118,7 @@ const About = () => {
             COMMUNITY, HONEST DESIGN, AND THE IDEA THAT SOMETIMES YOU JUST NEED
             SOMEONE RUNNING IN THE SAME DIRECTION, SHAPES EVERYTHING I CREATE.
           </span>
-          <span className="font-sans font-medium text-[#808080] px-20 max-sm:px-4 leading-[23.4px] max-sm:leading-[20px]">
+          <span className="font-sans font-medium text-[#808080] px-20 max-sm:px-4 leading-[23.4px] max-sm:leading-5">
             NMC was built on a simple idea. Not everyone needs a big crew,
             sometimes all you need is a few people running in the same
             direction. Here, you don't have to say anything at all. Just run.

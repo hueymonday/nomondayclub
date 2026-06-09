@@ -336,6 +336,28 @@ code {
   object-fit: cover;
 }
 
+/* ---scroll reveal animation--- */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 1.3s cubic-bezier(0.22, 0.61, 0.36, 0.94);
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-item.fade-only {
+  transform: translateY(0);
+}
+.reveal-item.fade-only.is-revealed {
+  opacity: 1;
+}
+
 ::-webkit-scrollbar {
   width: 0;
   background: transparent;

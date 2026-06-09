@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const Footer = () => {
+  const footerRef = useScrollReveal(".footer-reveal");
+
   // Hàm scroll mượt đến section tương ứng
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -22,7 +25,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full flex flex-col gap-10 max-sm:gap-6">
+    <footer
+      ref={footerRef}
+      className="w-full flex flex-col gap-10 max-sm:gap-6"
+    >
       {/* navigation links */}
       <div className="w-full h-fit p-5.5 max-sm:p-5 font-semibold flex max-sm:flex-col max-sm:gap-6 justify-between border-b-[1.5px] border-[#BBBBBB]/20">
         {/* nav */}
@@ -60,7 +66,7 @@ const Footer = () => {
         </div>
 
         {/* Networks */}
-        <div className="w-fit flex-col text-left max-sm:text-left text-right text-sm">
+        <div className="w-fit flex-col max-sm:text-left text-right text-sm">
           <span>Networks</span>
           <div className="text-[#999] [&>a]:transition-colors [&>a]:duration-300 [&>a:hover]:text-black/60">
             <a
@@ -85,7 +91,7 @@ const Footer = () => {
 
       {/* copyright */}
       <div className="w-full -mt-1.5 pb-5 h-2/3 max-h-120 min-h-48 max-sm:min-h-32 overflow-hidden">
-        <span className="w-full h-full -ml-4 flex items-center justify-center font-['Inter'] font-semibold text-[clamp(8rem,19vw,12rem)] md:text-[clamp(8rem,31vw,28rem)] leading-[0.8] tracking-[-0.06em] text-center">
+        <span className="w-full h-full -ml-4 flex items-center justify-center font-['Inter'] font-semibold text-[clamp(8rem,19vw,12rem)] md:text-[clamp(8rem,31vw,28rem)] leading-[0.8] tracking-[-0.06em] text-center reveal-item footer-reveal">
           ©2026
         </span>
       </div>

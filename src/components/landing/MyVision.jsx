@@ -31,7 +31,7 @@ const MyVision = () => {
         <motion.p
           ref={ref}
           className="font-clash font-semibold uppercase tracking-tight
-                     text-3xl leading-[1.2em]
+                     text-2xl leading-[1.2em]
                      md:text-5xl md:leading-[42.8px]"
           variants={containerVariant}
           initial="hidden"
