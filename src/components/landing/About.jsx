@@ -65,7 +65,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="w-full h-fit relative">
+    <section id="about" className="w-full h-fit relative max-sm:pt-32">
       <div className="w-full relative">
         {/* top — STICKY TITLE */}
         <div className="w-full pt-20 max-sm:pt-16 sticky top-0 z-0">

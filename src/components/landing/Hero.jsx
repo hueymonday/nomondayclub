@@ -47,7 +47,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="-tracking-[0.14rem] font-['Inter'] font-bold text-4xl md:text-inherit leading-tight">
+            <h1 className="-tracking-[0.14rem] font-['Inter'] font-bold text-4xl text-white md:text-inherit leading-tight">
               NMC — No Monday Club
             </h1>
 

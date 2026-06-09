@@ -85,7 +85,7 @@ const Footer = () => {
 
       {/* copyright */}
       <div className="w-full -mt-1.5 pb-5 h-2/3 max-h-120 min-h-48 max-sm:min-h-32 overflow-hidden">
-        <span className="w-full h-full -ml-4 flex items-center justify-center font-['Inter'] font-semibold text-[clamp(8 rem,19vw,12rem)] md:text-[clamp(8rem,31vw,28rem)] leading-[0.8] tracking-[-0.06em] text-center">
+        <span className="w-full h-full -ml-4 flex items-center justify-center font-['Inter'] font-semibold text-[clamp(8rem,19vw,12rem)] md:text-[clamp(8rem,31vw,28rem)] leading-[0.8] tracking-[-0.06em] text-center">
           ©2026
         </span>
       </div>
