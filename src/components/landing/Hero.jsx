@@ -63,7 +63,7 @@ const Hero = () => {
             variant="outline"
             className="group flex justify-between gap-2 h-11 text-black rounded-full pl-5 pr-1 hover:bg-gray-200"
           >
-            <Link to="/join">Start now</Link>
+            <Link to="/signup">Start now</Link>
             <Button className="h-9 w-9 rounded-full">
               <ArrowUpRight className="duration-500 ease-in-out transition-transform group-hover:rotate-45" />
             </Button>

@@ -27,4 +27,9 @@ export const images = {
   cta: {
     track: `${BASE}/CTA-track`,
   },
+  authen: {
+    auth1: `${BASE}/authencation01`,
+    auth2: `${BASE}/authencation02`,
+    auth3: `${BASE}/authencation03`,
+  },
 };

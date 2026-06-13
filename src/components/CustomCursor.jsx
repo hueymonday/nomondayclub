@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 
 function CustomCursor() {
-  const cursorX = useMotionValue(-100);
+  const cursorX = useMotionValue(100);
   const cursorY = useMotionValue(-100);
   const [imageUrl, setImageUrl] = useState(null); // ảnh hiện tại cần hiển thị, null = không hiện
 
